@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# JDDesigns E-Commerce Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Full-stack MERN e-commerce platform for custom metal design products, featuring a modern UI, secure payments, and a scalable backend architecture.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Overview
 
-### `npm start`
+JDDesigns is a production-style e-commerce application built to handle custom metal product sales.  
+It includes product management, cart functionality, secure checkout, and a complete backend API.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ✨ Key Features
 
-### `npm test`
+- 🛒 Product browsing and dynamic catalog
+- 🧺 Shopping cart with Redux state management
+- 💳 Secure payments with Stripe Checkout
+- 👤 User-friendly checkout flow
+- 🧾 Order creation and tracking
+- 🛠️ Admin-ready backend structure (CRUD APIs)
+- 📦 RESTful API with Express & MongoDB
+- ⚡ Responsive frontend with modern UI
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🧠 Architecture
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Frontend
+- React (SPA)
+- Redux for global state management (cart, UI state)
+- Axios for API communication
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Backend
+- Node.js + Express
+- MongoDB with Mongoose
+- REST API structure (controllers, routes, models)
+- Error handling & middleware
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Payments
+- Stripe Checkout integration
+- Order persistence before payment
+- Secure redirect flow with success/cancel handling
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🔄 Application Flow
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. User browses products
+2. Adds items to cart (Redux state)
+3. Proceeds to checkout
+4. Order is created in backend
+5. Stripe session is generated
+6. User completes payment via Stripe
+7. Redirect to success page with order confirmation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🧰 Tech Stack
 
-## Learn More
+- **Frontend:** React, Redux, Axios
+- **Backend:** Node.js, Express
+- **Database:** MongoDB (Mongoose)
+- **Payments:** Stripe
+- **Styling:** CSS / Tailwind (if used)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## ⚙️ Installation
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 1. Clone the repository
+```bash
+git clone https://github.com/rebeizantoine/jddesigns-ecommerce-platform.git
+cd jddesigns-ecommerce-platform
