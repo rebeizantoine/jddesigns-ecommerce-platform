@@ -17,7 +17,7 @@ const About = () => {
         <img src={welding} alt="Welding" />
       </div>
       <div className="about-content">
-        <h2 className="about-title">Customize your own project</h2>
+        <h2 className="about-title">Customize your own projects</h2>
         <p className="about-description">
           Outbox is set up to take in your most complex steelwork projects.
           Whether you'd like to execute a simple dining room table or you're
