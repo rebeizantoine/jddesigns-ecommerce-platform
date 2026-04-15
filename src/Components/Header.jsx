@@ -33,7 +33,7 @@ const Header = () => {
   // Fetch contact info
   useEffect(() => {
     axios
-      .get("https://allinone-14n7.onrender.com/contactsjdd/")
+      .get("https://eliowebsite.onrender.com/contactsjdd/")
       .then((res) => {
         if (res.data.length > 0) setContact(res.data[0]);
       })
@@ -51,7 +51,6 @@ const Header = () => {
   // Cart item count
   const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
-  
   return (
     <div>
       {/* Top Header */}

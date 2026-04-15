@@ -11,7 +11,7 @@ const DashboardGalleries = () => {
 
   useEffect(() => {
     axios
-      .get("https://allinone-14n7.onrender.com/gallery/")
+      .get("https://eliowebsite.onrender.com/gallery/")
       .then((response) => {
         setGalleries(response.data);
       })
@@ -22,10 +22,10 @@ const DashboardGalleries = () => {
 
   const handleDelete = (galleryId) => {
     axios
-      .delete(`https://allinone-14n7.onrender.com/gallery/${galleryId}`)
+      .delete(`https://eliowebsite.onrender.com/gallery/${galleryId}`)
       .then(() => {
         setGalleries((prevGalleries) =>
-          prevGalleries.filter((gallery) => gallery._id !== galleryId)
+          prevGalleries.filter((gallery) => gallery._id !== galleryId),
         );
         toast.success("Gallery deleted successfully");
       })
@@ -50,14 +50,14 @@ const DashboardGalleries = () => {
   const handleEditSave = () => {
     axios
       .put(
-        `https://allinone-14n7.onrender.com/gallery/${currentGallery._id}`,
-        currentGallery
+        `https://eliowebsite.onrender.com/gallery/${currentGallery._id}`,
+        currentGallery,
       )
       .then(() => {
         setGalleries((prevGalleries) =>
           prevGalleries.map((gallery) =>
-            gallery._id === currentGallery._id ? currentGallery : gallery
-          )
+            gallery._id === currentGallery._id ? currentGallery : gallery,
+          ),
         );
         setIsEditing(false);
         setCurrentGallery(null);

@@ -11,7 +11,7 @@ function DashboardAbout() {
   useEffect(() => {
     // Fetch all about details when the component mounts
     axios
-      .get("https://allinone-14n7.onrender.com/about/")
+      .get("https://eliowebsite.onrender.com/about/")
       .then((response) => {
         setAboutData(response.data);
       })
@@ -23,7 +23,7 @@ function DashboardAbout() {
 
   const handleEdit = (id) => {
     const newData = aboutData.map((item) =>
-      item._id === id ? { ...item, editable: true } : item
+      item._id === id ? { ...item, editable: true } : item,
     );
     setAboutData(newData);
   };
@@ -44,10 +44,10 @@ function DashboardAbout() {
     }
 
     axios
-      .put(`https://allinone-14n7.onrender.com/about/${id}`, formData)
+      .put(`https://eliowebsite.onrender.com/about/${id}`, formData)
       .then((response) => {
         const newData = aboutData.map((item) =>
-          item._id === id ? { ...response.data, editable: false } : item
+          item._id === id ? { ...response.data, editable: false } : item,
         );
         setAboutData(newData);
         toast.success("Changes saved successfully!");
@@ -60,7 +60,7 @@ function DashboardAbout() {
 
   const handleCancel = (id) => {
     const newData = aboutData.map((item) =>
-      item._id === id ? { ...item, editable: false } : item
+      item._id === id ? { ...item, editable: false } : item,
     );
     setAboutData(newData);
     toast.error("Changes discarded.");
@@ -69,7 +69,7 @@ function DashboardAbout() {
   const handleInputChange = (e, id) => {
     const { name, value, files } = e.target;
     const newData = aboutData.map((item) =>
-      item._id === id ? { ...item, [name]: files ? files[0] : value } : item
+      item._id === id ? { ...item, [name]: files ? files[0] : value } : item,
     );
     setAboutData(newData);
   };

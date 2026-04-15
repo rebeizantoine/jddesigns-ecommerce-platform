@@ -20,7 +20,7 @@ const Categories123 = () => {
 
   const fetchCategories = () => {
     axios
-      .get("http://localhost:8000/categoriesjdd/")
+      .get("https://eliowebsite.onrender.com/categoriesjdd/")
       .then((response) => {
         setCategories(response.data);
       })
@@ -31,7 +31,7 @@ const Categories123 = () => {
 
   const handleDelete = (categoryId) => {
     axios
-      .delete(`http://localhost:8000/categoriesjdd/${categoryId}`)
+      .delete(`https://eliowebsite.onrender.com/categoriesjdd/${categoryId}`)
       .then(() => {
         setCategories((prevCategories) =>
           prevCategories.filter((category) => category._id !== categoryId),
@@ -59,7 +59,7 @@ const Categories123 = () => {
   const handleEditSave = () => {
     axios
       .put(
-        `http://localhost:8000/categoriesjdd/${currentCategory._id}`,
+        `https://eliowebsite.onrender.com/categoriesjdd/${currentCategory._id}`,
         currentCategory,
       )
       .then(() => {
@@ -92,7 +92,7 @@ const Categories123 = () => {
 
   const handleAddSave = () => {
     axios
-      .post("http://localhost:8000/categoriesjdd/", newCategory)
+      .post("https://eliowebsite.onrender.com/categoriesjdd/", newCategory)
       .then((response) => {
         setCategories([...categories, response.data]);
         setNewCategory({

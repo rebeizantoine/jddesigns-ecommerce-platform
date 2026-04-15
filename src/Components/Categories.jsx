@@ -59,7 +59,7 @@ const Categories = () => {
   }, []);
   useEffect(() => {
     axios
-      .get("https://allinone-14n7.onrender.com/categoriesjdd")
+      .get("https://eliowebsite.onrender.com/categoriesjdd")
       .then((response) => {
         setCategory(response.data);
       })

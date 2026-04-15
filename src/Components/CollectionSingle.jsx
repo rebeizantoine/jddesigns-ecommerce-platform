@@ -13,7 +13,7 @@ const CollectionSingle = () => {
       try {
         console.log("Fetching items for collection:", collectionName);
         const response = await axios.get(
-          `https://allinone-14n7.onrender.com/singleitem/items/tag/${collectionName}`
+          `https://eliowebsite.onrender.com/singleitem/items/tag/${collectionName}`,
         );
         console.log("Axios Response:", response.data);
         setItems(response.data);

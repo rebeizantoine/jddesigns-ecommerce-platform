@@ -16,7 +16,7 @@ const FeaturedItems = () => {
     const fetchItems = async () => {
       try {
         const response = await axios.get(
-          "https://allinone-14n7.onrender.com/singleitem/",
+          "https://eliowebsite.onrender.com/singleitem/",
         );
 
         setItems(response.data.slice(0, 8));
@@ -36,7 +36,7 @@ const FeaturedItems = () => {
   const handleSave = async (index) => {
     try {
       await axios.put(
-        `https://allinone-14n7.onrender.com/singleitem/${items[index]._id}`,
+        `https://eliowebsite.onrender.com/singleitem/${items[index]._id}`,
         items[index],
       );
       setEditIndex(null);

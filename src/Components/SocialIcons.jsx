@@ -12,14 +12,14 @@ const SocialIcons = () => {
   useEffect(() => {
     // Fetch social media links from API
     axios
-      .get("https://allinone-14n7.onrender.com/contactsjdd/")
+      .get("https://eliowebsite.onrender.com/contactsjdd/")
       .then((response) => {
         console.log("API response:", response.data);
         if (response.data && response.data.length > 0) {
           setSocialLinks(response.data[0]);
           console.log(
             "Social media links fetched successfully:",
-            response.data[0]
+            response.data[0],
           ); // Log fetched data
         } else {
           console.error("No social media links found");

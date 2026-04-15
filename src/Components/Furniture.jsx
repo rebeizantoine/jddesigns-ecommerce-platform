@@ -13,7 +13,7 @@ const Furniture = () => {
 
   useEffect(() => {
     axios
-      .get("https://allinone-14n7.onrender.com/singleitem")
+      .get("https://eliowebsite.onrender.com/singleitem")
       .then((response) => {
         setItems(response.data);
       })
@@ -35,7 +35,9 @@ const Furniture = () => {
       item.item_additionalTag2
         .toLowerCase()
         .includes(searchInput.toLowerCase()) ||
-      item.item_additionalTag3.toLowerCase().includes(searchInput.toLowerCase())
+      item.item_additionalTag3
+        .toLowerCase()
+        .includes(searchInput.toLowerCase()),
   );
 
   const totalItems = filteredItems.length;

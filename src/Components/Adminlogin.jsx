@@ -12,11 +12,11 @@ const AdminLogin = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://allinone-14n7.onrender.com/adminsjdd/adminsjdd/login",
+        "https://eliowebsite.onrender.com/adminsjdd/adminsjdd/login",
         {
           adminname,
           adminpassword,
-        }
+        },
       );
       if (response.data.success) {
         navigate("/dashboard");

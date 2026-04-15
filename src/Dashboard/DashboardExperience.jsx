@@ -15,7 +15,7 @@ const DashboardExperience = () => {
 
   useEffect(() => {
     axios
-      .get("https://allinone-14n7.onrender.com/exhibitions")
+      .get("https://eliowebsite.onrender.com/exhibitions")
       .then((response) => {
         setExhibitions(response.data);
       })
@@ -26,12 +26,12 @@ const DashboardExperience = () => {
 
   const handleDelete = (exhibitionId) => {
     axios
-      .delete(`https://allinone-14n7.onrender.com/exhibitions/${exhibitionId}`)
+      .delete(`https://eliowebsite.onrender.com/exhibitions/${exhibitionId}`)
       .then(() => {
         setExhibitions((prevExhibitions) =>
           prevExhibitions.filter(
-            (exhibition) => exhibition._id !== exhibitionId
-          )
+            (exhibition) => exhibition._id !== exhibitionId,
+          ),
         );
         toast.success("Exhibition deleted successfully");
       })
@@ -60,16 +60,16 @@ const DashboardExperience = () => {
   const handleEditSave = () => {
     axios
       .put(
-        `https://allinone-14n7.onrender.com/exhibitions/${currentExhibition._id}`,
-        currentExhibition
+        `https://eliowebsite.onrender.com/exhibitions/${currentExhibition._id}`,
+        currentExhibition,
       )
       .then(() => {
         setExhibitions((prevExhibitions) =>
           prevExhibitions.map((exhibition) =>
             exhibition._id === currentExhibition._id
               ? currentExhibition
-              : exhibition
-          )
+              : exhibition,
+          ),
         );
         setIsEditing(false);
         setCurrentExhibition(null);

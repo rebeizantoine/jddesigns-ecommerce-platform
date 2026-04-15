@@ -10,7 +10,7 @@ const Alsolike = () => {
   useEffect(() => {
     // Fetch items that you may also like
     axios
-      .get("https://allinone-14n7.onrender.com/singleitem/maylike")
+      .get("https://eliowebsite.onrender.com/singleitem/maylike")
       .then((response) => {
         setItems(response.data);
       })

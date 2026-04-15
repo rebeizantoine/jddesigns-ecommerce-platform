@@ -13,7 +13,7 @@ function DashboardCV() {
     async function fetchContacts() {
       try {
         const response = await axios.get(
-          "https://allinone-14n7.onrender.com/contactsjdd",
+          "https://eliowebsite.onrender.com/contactsjdd",
         );
         setContacts(response.data);
       } catch (error) {
@@ -26,7 +26,7 @@ function DashboardCV() {
   const handleDeleteContact = async (contactId) => {
     try {
       await axios.delete(
-        `https://allinone-14n7.onrender.com/contactsjdd/${contactId}`,
+        `https://eliowebsite.onrender.com/contactsjdd/${contactId}`,
       );
       setContacts((prevContacts) =>
         prevContacts.filter((contact) => contact._id !== contactId),
@@ -55,7 +55,7 @@ function DashboardCV() {
     try {
       const { _id, ...updatedContact } = currentContact;
       const response = await axios.put(
-        `https://allinone-14n7.onrender.com/contactsjdd/${_id}`,
+        `https://eliowebsite.onrender.com/contactsjdd/${_id}`,
         updatedContact,
       );
       setContacts((prevContacts) =>
