@@ -30,7 +30,7 @@ const SingleFetched = () => {
   useEffect(() => {
     const itemId = localStorage.getItem("currentItemId");
     axios
-      .get(`https://allinone-14n7.onrender.com/singleitem/${itemId}`)
+      .get(`https://eliowebsite.onrender.com/singleitem/${itemId}`)
       .then((res) => {
         setItem(res.data);
         setActiveImage(res.data.item_image1);
