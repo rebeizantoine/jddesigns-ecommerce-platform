@@ -27,6 +27,10 @@ const SingleFetched = () => {
   const [activeImage, setActiveImage] = useState(null);
   const [activeIndex, setActiveIndex] = useState(null);
 
+  // State for the toast displayed
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+
   useEffect(() => {
     const itemId = localStorage.getItem("currentItemId");
     axios
@@ -43,9 +47,17 @@ const SingleFetched = () => {
   // Restore the functionality
   const handleAddToCart = () => {
     dispatch(addToCart(item));
-    toast.success(`${item.item_name} added to cart!`);
-  };
 
+    setToastMessage(
+      `"${item.item_name}" added successfully for standardization`,
+    );
+
+    setShowToast(true);
+
+    setTimeout(() => {
+      setShowToast(false);
+    }, 3000);
+  };
   const galleryImages = [item.item_image1, item.item_image1, item.item_image1]; // Swap with real refs if available
 
   const accordionData = [
@@ -72,86 +84,95 @@ const SingleFetched = () => {
   ];
 
   return (
-    <div className="single-wrapper">
-      <div className="product-container">
-        {/* LEFT: Image Gallery */}
-        <div className="gallery-section">
-          <div className="main-image-box">
-            <img src={activeImage} alt="Product" />
-          </div>
-          <div className="thumbnail-row">
-            {galleryImages.map((img, index) => (
-              <div
-                key={index}
-                className={`thumb-box ${activeImage === img ? "active" : ""}`}
-                onClick={() => setActiveImage(img)}
-              >
-                <img src={img} alt={`Thumbnail ${index + 1}`} />
-              </div>
-            ))}
-          </div>
+    <>
+      {showToast && (
+        <div className="custom-toast">
+          <CheckCircle size={18} />
+          <span>{toastMessage}</span>
         </div>
+      )}
 
-        {/* RIGHT: Product Details (Strictly sized) */}
-        <div className="details-section">
-          <div className="brand-subtitle">
-            DESIGNED & PRODUCED BY JDDESIGNS SARL
-          </div>
-          <h1 className="product-title">{item.item_name}</h1>
-          <div className="product-price">${item.item_price} USD</div>
-
-          <div className="product-meta">
-            <p>Paid cash on delivery after 2-3 weeks of production.</p>
-            <p>
-              Transportation and additional services calculated at checkout.
-            </p>
-            <p className="stock">Quantity available: {item.quantity || 20}</p>
-          </div>
-
-          {/* The 3 Uniform Buttons */}
-          <div className="button-stack">
-            <button href="https://wa.me/yournumber" className="btn btn-wa">
-              <MessageCircle size={14} /> Order on Whatsapp
-            </button>
-            <button className="btn btn-custom">Customise</button>
-            <button className="btn btn-cart" onClick={handleAddToCart}>
-              Add To Cart
-            </button>
-          </div>
-
-          <div className="pickup-info">
-            <CheckCircle size={14} className="check-icon" />
-            <div>
-              <p>Pickup available at Adonis, Zouk Mosbeh, Lebanon</p>
-              <span>Usually ready in up to 2 weeks</span>
+      <div className="single-wrapper">
+        <div className="product-container">
+          {/* LEFT: Image Gallery */}
+          <div className="gallery-section">
+            <div className="main-image-box">
+              <img src={activeImage} alt="Product" />
+            </div>
+            <div className="thumbnail-row">
+              {galleryImages.map((img, index) => (
+                <div
+                  key={index}
+                  className={`thumb-box ${activeImage === img ? "active" : ""}`}
+                  onClick={() => setActiveImage(img)}
+                >
+                  <img src={img} alt={`Thumbnail ${index + 1}`} />
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Accordion */}
-          <div className="accordion-container">
-            {accordionData.map((tab, i) => (
-              <div key={i} className="accordion-item">
-                <div
-                  className="accordion-header"
-                  onClick={() => setActiveIndex(activeIndex === i ? null : i)}
-                >
-                  <div className="accordion-title">
-                    <span className="acc-icon">{tab.icon}</span>
-                    {tab.title}
-                  </div>
-                  <div className="acc-toggle">
-                    {activeIndex === i ? "−" : "+"}
-                  </div>
-                </div>
-                {activeIndex === i && (
-                  <div className="accordion-content">{tab.content}</div>
-                )}
+          {/* RIGHT: Product Details (Strictly sized) */}
+          <div className="details-section">
+            <div className="brand-subtitle">
+              DESIGNED & PRODUCED BY JDDESIGNS SARL
+            </div>
+            <h1 className="product-title">{item.item_name}</h1>
+            <div className="product-price">${item.item_price} USD</div>
+
+            <div className="product-meta">
+              <p>Paid cash on delivery after 2-3 weeks of production.</p>
+              <p>
+                Transportation and additional services calculated at checkout.
+              </p>
+              <p className="stock">Quantity available: {item.quantity || 20}</p>
+            </div>
+
+            {/* The 3 Uniform Buttons */}
+            <div className="button-stack">
+              <button href="https://wa.me/yournumber" className="btn btn-wa">
+                <MessageCircle size={14} /> Order on Whatsapp
+              </button>
+              <button className="btn btn-custom">Customise</button>
+              <button className="btn btn-cart" onClick={handleAddToCart}>
+                Add To Cart
+              </button>
+            </div>
+
+            <div className="pickup-info">
+              <CheckCircle size={14} className="check-icon" />
+              <div>
+                <p>Pickup available at Adonis, Zouk Mosbeh, Lebanon</p>
+                <span>Usually ready in up to 2 weeks</span>
               </div>
-            ))}
+            </div>
+
+            {/* Accordion */}
+            <div className="accordion-container">
+              {accordionData.map((tab, i) => (
+                <div key={i} className="accordion-item">
+                  <div
+                    className="accordion-header"
+                    onClick={() => setActiveIndex(activeIndex === i ? null : i)}
+                  >
+                    <div className="accordion-title">
+                      <span className="acc-icon">{tab.icon}</span>
+                      {tab.title}
+                    </div>
+                    <div className="acc-toggle">
+                      {activeIndex === i ? "−" : "+"}
+                    </div>
+                  </div>
+                  {activeIndex === i && (
+                    <div className="accordion-content">{tab.content}</div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
